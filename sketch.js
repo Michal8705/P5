@@ -24,57 +24,15 @@ var c = 0;
 
 
 function setup() {
-  createCanvas(400, 400);
-var o = 0;  
-var r = 0;  
-var q = 0;
-
-
-  for(o = 0; o < 200000; o++) {  
-      table1.push(random(50,250));
-  
-  }
-
-//   counter++;
-//   print(counter);
-  
-//   if(counter > 200){
-  
-      for(q = 0; q < 100000; q++) {  
-
-    }
-  
-    for(r = 0; r < 200000; r++) {  
-      table1.push(random(50,250));
-    
-  }   
+  createCanvas(400, 400);   
 }
 
 
 function draw() {
   background(220);
-  var a = 0;
-  var b = 0;
-  
-  z = z + 1;
-  
-  // if (z % 10 == 0) {
-  //   q = q + width*height/(ster*ster);
-  // };
 
-  for(a = 0; a < 400; a = a + 4) { 
-    k = k+1;
-    for(b = 0; b < 400; b = b + 4) {  
-      k = k+1;
+      rect(20,20,4,4);
 
-      noStroke();
-      fill(table1[z+k],table1[z+k],table1[z+k]);
-      rect(b,a,4,4);
-      // rect(b,a,ster-ster/4*2,ster-ster/4*2);
-      // rect(b,a,ster-ster/4*3,ster-ster/4*3);
-
-    }      
-  }
 }
 
 
