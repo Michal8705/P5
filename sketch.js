@@ -1,75 +1,80 @@
-  
-// Object Communication Part 1
-// Code! Programming with p5.js
-// The Coding Train / Daniel Shiffman
-// https://thecodingtrain.com/beginners/p5js/7.6-object-communication-1.html
-// https://youtu.be/W1-ej3Wu5zg
-// https://editor.p5js.org/codingtrain/sketches/OG-_2K16
+var table1 = [];
+var table2 = [];
+var table3 = [];
+var mapSum = 100;  
+var map1Times = 0;  
+var map2Times = 0;  
+var ster = 100;
+var countTimes = 0;
+let canvSize1 = 0;
+var minSize1 = 0;
+var minSize2 = 0;
+var checker = 0;
+var k = 0;
+var counter = 0;
 
-let bubble1;
-let bubble2;
+
+var z = 0;
+var a = 0;
+var b = 0;
+var q = 0;
+var c = 0;
+
+
+
 
 function setup() {
-  createCanvas(600, 400);
-  bubble1 = new Bubble(200, 200);
-  bubble2 = new Bubble(400, 200, 100);
+  createCanvas(600, 600);
+var o = 0;  
+var r = 0;  
+var q = 0;
+
+
+  for(o = 0; o < 40000000; o++) {  
+      table1.push(random(50,250));
+  
+  }
+
+//   counter++;
+//   print(counter);
+  
+//   if(counter > 200){
+  
+      for(q = 0; q < 100000; q++) {  
+
+    }
+  
+    for(r = 0; r < 40000000; r++) {  
+      table1.push(random(50,250));
+    
+  }   
 }
+
 
 function draw() {
-  background(0);
+  background(220);
+  var a = 0;
+  var b = 0;
+  
+  z = z + 1;
+  
+  // if (z % 10 == 0) {
+  //   q = q + width*height/(ster*ster);
+  // };
 
-  if (bubble1.intersects(bubble2)) {
-    background(200, 0, 100);
-  }
+  for(a = 0; a < 600; a = a + 4) { 
+    k = k+1;
+    for(b = 0; b < 600; b = b + 4) {  
+      k = k+1;
 
-  bubble1.show();
-  bubble2.show();
-  bubble1.move();
-  //bubble2.move();
-  bubble2.x = mouseX;
-  bubble2.y = mouseY;
-}
+      noStroke();
+      fill(table1[z+k],table1[z+k],table1[z+k]);
+      rect(b,a,4,4);
+      // rect(b,a,ster-ster/4*2,ster-ster/4*2);
+      // rect(b,a,ster-ster/4*3,ster-ster/4*3);
 
-class Bubble {
-  constructor(x, y, r = 50) {
-    this.x = x;
-    this.y = y;
-    this.r = r;
-    this.brightness = 0;
-  }
-
-  intersects(other) {
-    let d = dist(this.x, this.y, other.x, other.y);
-    return d < this.r + other.r;
-    // if (d < this.r + other.r) {
-    //   return true;
-    // } else {
-    //   return false;
-    // }
-  }
-
-  changeColor(bright) {
-    this.brightness = bright;
-  }
-
-  contains(px, py) {
-    let d = dist(px, py, this.x, this.y);
-    if (d < this.r) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
-  move() {
-    this.x = this.x + random(-2, 2);
-    this.y = this.y + random(-2, 2);
-  }
-
-  show() {
-    stroke(255);
-    strokeWeight(4);
-    fill(this.brightness, 125);
-    ellipse(this.x, this.y, this.r * 2);
+    }      
   }
 }
+
+
