@@ -30,7 +30,7 @@ var r = 0;
 var q = 0;
 
 
-  for(o = 0; o < 2000000; o++) {  
+  for(o = 0; o < 200000; o++) {  
       table1.push(random(50,250));
   
   }
@@ -44,7 +44,7 @@ var q = 0;
 
     }
   
-    for(r = 0; r < 2000000; r++) {  
+    for(r = 0; r < 200000; r++) {  
       table1.push(random(50,250));
     
   }   
