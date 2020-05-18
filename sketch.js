@@ -24,7 +24,7 @@ var c = 0;
 
 
 function setup() {
-  createCanvas(600, 600);
+  createCanvas(400, 400);
 var o = 0;  
 var r = 0;  
 var q = 0;
@@ -62,9 +62,9 @@ function draw() {
   //   q = q + width*height/(ster*ster);
   // };
 
-  for(a = 0; a < 600; a = a + 4) { 
+  for(a = 0; a < 400; a = a + 4) { 
     k = k+1;
-    for(b = 0; b < 600; b = b + 4) {  
+    for(b = 0; b < 400; b = b + 4) {  
       k = k+1;
 
       noStroke();
