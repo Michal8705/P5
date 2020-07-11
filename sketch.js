@@ -7,7 +7,7 @@ function preload() {
 
 }
 function setup() {
-createCanvas (1000, 1000);
+createCanvas (500, 500);
 background(50);
  
 // print(table1.titles.length);
