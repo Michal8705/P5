@@ -5,21 +5,32 @@ var g1 = 0;
 var b1 = 0;
 var ster1 = 0;
 var ster2 = 0;
+var ster3 = 0;
+var ster4 = 0;
+var ster5 = 0;
 var name1 = "";
 var name2 = "";
 
+
 function preload() {
- table1 = loadJSON("swiat4.json");
-// table2 = loadJSON("swiat.json");
+ table1 = loadJSON("swiat2.json");
+ table2 = loadJSON("kraje.json");
 }
 
-function mousePressed() {
- if (mouseButton === LEFT) {
-  print(mouseY*2000+mouseX);
-  // print(pixels[mouseY*2000*4+mouseX*4]);
-  // print(pixels[mouseY*2000*4+mouseX*4+1]);
-  // print(pixels[mouseY*2000*4+mouseX*4+2]);
- } 
+// function mousePressed() {
+//  if (mouseButton === LEFT) {
+// //  print(mouseY*2000+mouseX);
+//   // print(pixels[mouseY*2000*4+mouseX*4]);
+//   // print(pixels[mouseY*2000*4+mouseX*4+1]);
+//   // print(pixels[mouseY*2000*4+mouseX*4+2]);
+//   ster3 = table1.titles[mouseY*2000+mouseX];
+//  } 
+// }
+
+function mouseMoved() {
+ ster3 = table1.titles[mouseY*2000+mouseX];
+ ster4 = mouseX;
+ ster5 = mouseY;
 }
 
 function setup() {
@@ -29,37 +40,49 @@ function setup() {
 
 }  
   
+
 function draw() {
 
- 
  loadPixels();
   
  for(a = 0; a < height*width*4; a = a+4) {
   ster2 = table1.titles[a/4];
   
-//  if(ster2 > 999 || ster2 == 15){
-  if(ster2 > 0 && ster2 != 500){
-   pixels[a] = 180;
+  if(ster2 > 0 && ster2 < 500){
+   pixels[a] = 200;
+   pixels[a+1] = 200;
+   pixels[a+2] = 200;
   }
   if(ster2 == 500){
-   pixels[a+1] = 180;
+   pixels[a] = 0;
+   pixels[a+1] = 0;
+   pixels[a+2] = 0;
   }
-  
-  
+  if(ster2 > 500){
+   pixels[a] = 100;
+   pixels[a+1] = 100;
+   pixels[a+2] = 100;
+  }
+  if(ster2 == 0){
+   pixels[a] = 200;
+   pixels[a+1] = 200;
+   pixels[a+2] = 200;
+  }
+  if(ster3 != 0 && ster3 < 500 && ster2 == ster3){
+   pixels[a] = ster3;
+   pixels[a+1] = 100;
+   pixels[a+2] = 100;
+  }
+ }  
+ updatePixels();
+ 
+ if(ster3 != 0 && ster3 < 500){
+  name1 = table2.titles[ster3-1].country.name;
+  strokeWeight(4);
+  fill(255, 255, 255,100);
+  rect(ster4, ster5-30, 250, 50, 20);
+  fill(0);
+  textSize(20);
+  text(name1,ster4+10, ster5);
  }
- 
- 
- 
- 
- // for(a = 0; a < height*width*4; a = a+4) {
- //  r1 = table2.titles[a];
- //  g1 = table2.titles[a+1];
- //  b1 = table2.titles[a+2];
- 
- // pixels[a] = r1;
- // pixels[a+1] = g1;
- // pixels[a+2] = b1;
- // pixels[a+3] = table2.titles[a+3]; 
- // }
- updatePixels();  
 }
