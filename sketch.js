@@ -76,13 +76,13 @@ function draw() {
  }  
  updatePixels();
  
- if(ster3 != 0 && ster3 < 500){
-  name1 = table2.titles[ster3-1].country.name;
-  strokeWeight(4);
-  fill(255, 255, 255,100);
-  rect(ster4, ster5-30, 250, 50, 20);
-  fill(0);
-  textSize(20);
-  text(name1,ster4+10, ster5);
- }
+ // if(ster3 != 0 && ster3 < 500){
+ //  name1 = table2.titles[ster3-1].country.name;
+ //  strokeWeight(4);
+ //  fill(255, 255, 255,100);
+ //  rect(ster4, ster5-30, 250, 50, 20);
+ //  fill(0);
+ //  textSize(20);
+ //  text(name1,ster4+10, ster5);
+ // }
 }
