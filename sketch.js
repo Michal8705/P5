@@ -24,13 +24,14 @@ function mousePressed() {
 
 function setup() {
  createCanvas(2000, 2000);
+ pixelDensity(1.0); 
  background(0);
-  pixelDensity(1.0);
+
 }  
   
 function draw() {
 
-  
+ 
  loadPixels();
   
  for(a = 0; a < height*width*4; a = a+4) {
@@ -39,15 +40,9 @@ function draw() {
 //  if(ster2 > 999 || ster2 == 15){
   if(ster2 > 0 && ster2 != 500){
    pixels[a] = 180;
-   pixels[a+1] = 255;
-   pixels[a+2] = 255;
-   pixels[a+3] = 255;
   }
   if(ster2 == 500){
-   pixels[a] = 255;
    pixels[a+1] = 180;
-   pixels[a+2] = 255;
-   pixels[a+3] = 255;
   }
   
   
