@@ -12,10 +12,10 @@ var name1 = "";
 var name2 = "";
 
 
-function preload() {
- table1 = loadJSON("swiat2.json");
- table2 = loadJSON("kraje.json");
-}
+// function preload() {
+//  table1 = loadJSON("swiat2.json");
+//  table2 = loadJSON("kraje.json");
+// }
 
 // function mousePressed() {
 //  if (mouseButton === LEFT) {
@@ -27,11 +27,11 @@ function preload() {
 //  } 
 // }
 
-function mouseMoved() {
- ster3 = table1.titles[mouseY*2000+mouseX];
- ster4 = mouseX;
- ster5 = mouseY;
-}
+// function mouseMoved() {
+//  ster3 = table1.titles[mouseY*2000+mouseX];
+//  ster4 = mouseX;
+//  ster5 = mouseY;
+// }
 
 function setup() {
  createCanvas(2000, 2000);
@@ -75,14 +75,16 @@ function draw() {
  //  }
  // }  
  // updatePixels();
- 
- if(ster3 != 0 && ster3 < 500){
-  name1 = table2.titles[ster3-1].country.name;
-  strokeWeight(4);
+   strokeWeight(4);
   fill(255, 255, 255,100);
-  rect(ster4, ster5-30, 250, 50, 20);
-  fill(0);
-  textSize(20);
-  text(name1,ster4+10, ster5);
- }
+  rect(400, 400, 250, 50, 20);
+ // if(ster3 != 0 && ster3 < 500){
+ //  name1 = table2.titles[ster3-1].country.name;
+ //  strokeWeight(4);
+ //  fill(255, 255, 255,100);
+ //  rect(ster4, ster5-30, 250, 50, 20);
+ //  fill(0);
+ //  textSize(20);
+ //  text(name1,ster4+10, ster5);
+ // }
 }
