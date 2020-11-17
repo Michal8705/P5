@@ -1,6 +1,7 @@
 var table1;
 var table2;
 var table3;
+var tableText1 = ['World', 'Countries','test1','test2'];
 var textsSize = 60;
 var mousX = 0;
 var mousY = 0;
@@ -11,6 +12,9 @@ var extraCanvas;
 var extraCanvas2;
 var extraCanvas3;
 var extraCord = 0;
+var countryCord = 0;
+var textChoice = 'Search...';
+var textSter1 = -1;
 
 var pointX = 500;
 var pointY = 1200;
@@ -18,6 +22,7 @@ var ster1 = -1;
 var ster2 = 0;
 var ster3 = 1;
 var ster4 = 1;
+var pos = 0;
 
 function preload() {
  table1 = loadJSON("swiat10.json");
@@ -33,9 +38,14 @@ function mouseMoved() {
 function mousePressed() {
  mousPressX = mouseX;
  mousPressY = mouseY;
+}
 
-
- 
+function mouseWheel(event) {
+  print(event.delta);
+  //move the square according to the vertical scroll amount
+  pos += event.delta/100;
+  //uncomment to block page scrolling
+  //return false;
 }
 
 function setup() {
@@ -70,6 +80,29 @@ function draw() {
  if (sterButton == 0){ 
   map1 = new SecondMap(0,0); 
   map1.secondMapShow();
+  
+   push();  
+  if(countryCord != 0 && countryCord < 500 && mousX < windowWidth/1805*1405){
+   name1 = table2.titles[countryCord-1].country.name;
+//   scale((windowWidth)/1805, (windowHeight)/1250);
+
+   strokeWeight(4);
+   fill(255, 255, 255,100);
+   rect(mousX, mousY-30, textWidth(name1)*2.5, 50, 20);
+   fill(0);
+   textSize(20);
+   text(name1,mousX+10, mousY);
+
+  }
+  pop();
+
+  panel1 = new Panel(windowWidth/1805*1405+10,0); 
+  panel1.showPanel();
+//  aaa = -1;
+
+  sizeType1 = new SizeType(windowWidth/1805*1405+10,windowHeight,0.1,0.05,0.8,3,15); 
+  sizeType1.sizeType();
+  sizeType1.textType();
  }
 
 
@@ -340,7 +373,8 @@ class SecondMap {
   extraCanvas.loadPixels();
   scale((windowWidth)/1805, (windowHeight)/1250);
 //  translate(-105, -273);
-  image(extraCanvas,this.x+10,this.y+10,1405,1230); 
+//  image(extraCanvas,this.x+10,this.y+10,1405,1230); 
+  image(extraCanvas,this.x+6,this.y,1405); 
  
   for(var e = 0; e < 1805; e++){
    for(var f = 0; f < 1250; f++){
@@ -385,8 +419,142 @@ class SecondMap {
    }
   }
   extraCanvas.updatePixels();  
+  
+  
   pop();
+   countryCord = table1.titles[round(mouseX*(1805/(windowWidth-(390*(windowWidth/1805)))))+
+   round(mouseY*1250/windowHeight)*1805];
+   // countryCord = table1.titles[mouseX(windowWidth)/1805+
+   // mouseY*1805];
+
+//  scale(1.0);
+  noFill();
+  strokeWeight(1);
+  stroke(65,20,255,255);  
+  rect(0, 0,1205,750);   
+  stroke(65,40,255,255);  
+  rect(1, 1,1203,748);   
+  stroke(65,60,255,255);  
+  rect(2, 2,1201,746);   
+  stroke(65,80,255,255);  
+  rect(3, 3,1199,744);   
+  stroke(65,100,255,255);  
+  rect(4, 4,1197,742);   
+  stroke(65,120,255,255);  
+  rect(5, 5,1195,740);   
+  stroke(65,140,255,255);  
+  rect(6, 6,1193,738);   
+  stroke(65,160,255,255);  
+  rect(7, 7,1191,736);   
+  stroke(65,180,255,255);  
+  rect(8, 8,1189,734);   
+  stroke(65,200,255,255);  
+  rect(9, 9,1187,732);   
  }
 }
 
+     /*-------------KRAJE-------------*/
+
+
+class Panel {
+ constructor(x, y) {
+  this.x = x;
+  this.y = y;
+ }  
+ showPanel() {
+  noStroke();
+  fill(65, 20, 255,235);
+  rect(this.x, this.y, windowWidth-this.x, windowHeight);
+
+ }
+}
+
+class SizeType {
+ constructor(x, y, a, b, c, d, textS) {
+  this.x = x;
+  this.y = y;
+  this.a = a;
+  this.b = b;
+  this.c = c;
+  this.d = d;
+  this.textS = textS;
+
+ }  
+
+
+ sizeType() {
+  var stX = this.x+(windowWidth-this.x)*this.a;
+  var stY = this.y*this.b;
+  var stX2 = (windowWidth-this.x)*this.c;
+  var stY2 = windowHeight*this.b;
+  
+  fill(222, 222, 222,255);
+  strokeWeight(2);
+  stroke(0,0,0,150); 
+  rect(stX, stY, stX2, stY2,20);  
+  
+  if(mousPressX >= stX && mousPressX <= stX+stX2 &&
+     mousPressY >= stY && mousPressY <= stY+stY2){
+   strokeWeight(1);
+   rect(stX, stY, stX2, stY2+this.d*stY2,20);
+   
+   for(var z = 1; z <= this.d; z++){
+    var zTmp = 0;
+    if(z == this.d){
+     var zTmp = 0;
+    }
+    if(mousX >= stX && mousX <= stX+stX2 &&
+       mousY >= stY+z*stY2 && mousY <= stY+(z+1)*stY2) {
+       fill(0, 0, 0,75);
+    }else{
+       fill(222, 222, 222,255);
+    }
+    rect(stX, stY+z*stY2, stX2, stY2,0,0,zTmp,zTmp);    
+   }
+  }
+ }
+
+ textType() {
+  var stX = this.x+(windowWidth-this.x)*this.a;
+  var stY = this.y*this.b;
+  var stX2 = (windowWidth-this.x)*this.c;
+  var stY2 = windowHeight*this.b;
+
+  textSize(this.textS);
+  textStyle(BOLD);
+  textFont('Comic Sans MS');
+  fill(110,110,110);
+  stroke(255,255,255,255); 
+
+  text(textChoice,stX+stX2*0.05, stY+stY2/2+textAscent(textChoice)/3);
+
+  if(mousPressX >= stX && mousPressX <= stX+stX2 &&
+     mousPressY >= stY && mousPressY <= stY+stY2){
+   textSter1 = 1;
+      
+   for(var z = 1; z <= this.d; z++){
+    text(tableText1[z-1],stX+stX2*0.1, stY+z*stY2+stY2/2+textAscent(tableText1[z-1])/3);
+   }
+   if(this.d < tableText1.length){
+    strokeWeight(1);
+    stroke(0,0,0,150); 
+    fill(255,255,255);
+    rect(stX+round(stX2*0.95), stY+stY2, stX2-round(stX2*0.95), this.d*stY2);
+    fill(155,155,155);
+    rect(stX+round(stX2*0.95), stY+stY2, stX2-round(stX2*0.95), 0.5*stY2+pos);
+   }
+  }
+  
+  if( textSter1 == 1){
+
+   for(var z = 1; z <= this.d; z++){
+    if(mousPressX >= stX && mousPressX <= stX+stX2 &&
+       mousPressY >= stY+z*stY2 && mousPressY <= stY+(z+1)*stY2){
+     textChoice = tableText1[z-1];
+     textSter1 = textSter1*(-1);
+    }
+   }
+  }
+ }
+}
  
