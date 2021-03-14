@@ -292,7 +292,7 @@ function draw() {
   sizeType5.textType();
 
   C_changer = pos5;
-  text(ST_textChoice[2], 150, 100, 100, 100);
+  text(displayWidth, 150, 100, 100, 100);
   text(ST_textChoice[0], 150, 120, 100, 100);
   text(ST_textChoice[1], 150, 150, 100, 100);
 //  text(ST_tabSearch4[0].length, 150, 180, 100, 100);
