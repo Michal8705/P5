@@ -101,7 +101,7 @@ function mouseClicked() {
 }
 
 function setup() {
- createCanvas(windowWidth, windowHeight);
+ createCanvas(displayWidth, displayHeight);
  if (sterButton == 1) {
   extraCanvas = createGraphics(1805, 1250);
   extraCanvas2 = createGraphics(20, 20);
@@ -206,7 +206,7 @@ function draw() {
   /*   show country on map   */
 
   push();
-  if (countryCord != 0 && countryCord < 500 && mousX < windowWidth / 1805 * 1405) {
+  if (countryCord != 0 && countryCord < 500 && mousX < displayWidth / 1805 * 1405) {
    name1 = table2.titles[countryCord - 1].country.name;
 
    strokeWeight(4);
@@ -222,7 +222,7 @@ function draw() {
 
   /*   category panel   */
 
-  panel1 = new Panel(windowWidth / 1805 * 1405 + 10, 0);
+  panel1 = new Panel(displayWidth / 1805 * 1405 + 10, 0);
   panel1.showPanel();
 
 
@@ -238,11 +238,11 @@ function draw() {
   /*   MAPS   */
   
 
-  changer2 = new Changer(windowWidth / 1805 * 1405 + 10, windowHeight, 0.1, 0.45, 0.2, 0.05, 1, 15, 'FULL SCREEN');
+  changer2 = new Changer(displayWidth / 1805 * 1405 + 10, displayHeight, 0.1, 0.45, 0.2, 0.05, 1, 15, 'FULL SCREEN');
   changer2.changerType();
 
   if(ST_textChoice[4] == ST_tType[0]){
-   changer1 = new Changer(windowWidth / 1805 * 1405 + 10, windowHeight, 0.1, 0.35, 0.2, 0.05, 0, 15, 'ADDITIONAL CHART');
+   changer1 = new Changer(displayWidth / 1805 * 1405 + 10, displayHeight, 0.1, 0.35, 0.2, 0.05, 0, 15, 'ADDITIONAL CHART');
    changer1.changerType();
   } 
 
@@ -251,36 +251,36 @@ function draw() {
       (ST_textChoice[2] == ST_tComparision[1] && ST_textChoice[0] != '') ||
       (ST_textChoice[2] == ST_tComparision[2] && ST_textChoice[0] != '' && ST_textChoice[1] != '')){
       
-    start1 = new Start(windowWidth / 1805 * 1405 + 10, windowHeight, 0.1, 0.85, 0.8, 0.05, 0, 25, 'START');
+    start1 = new Start(displayWidth / 1805 * 1405 + 10, displayHeight, 0.1, 0.85, 0.8, 0.05, 0, 25, 'START');
     start1.startType();
    }
   }
   
   if(ST_textChoice[2] == ST_tComparision[2]){
 
-   sizeType2 = new SizeType(windowWidth / 1805 * 1405 + 10, windowHeight, 0.1, 0.65, 0.8, 0.05, 3, 15, table7, 1, 'ITEM II');
+   sizeType2 = new SizeType(displayWidth / 1805 * 1405 + 10, displayHeight, 0.1, 0.65, 0.8, 0.05, 3, 15, table7, 1, 'ITEM II');
    sizeType2.sizeType();
    sizeType2.searchType();
    mover1 = 0;
   }
 
   if(ST_textChoice[2] == ST_tComparision[1] || ST_textChoice[2] == ST_tComparision[2]){
-   sizeType1 = new SizeType(windowWidth / 1805 * 1405 + 10, windowHeight, 0.1, 0.55, 0.8, 0.05, 3, 15, table4, 0, 'ITEM I');
+   sizeType1 = new SizeType(displayWidth / 1805 * 1405 + 10, displayHeight, 0.1, 0.55, 0.8, 0.05, 3, 15, table4, 0, 'ITEM I');
    sizeType1.sizeType();
    sizeType1.searchType();
    
   }
   inpSter2 = ST_textChoice[2];
 
-  sizeType3 = new SizeType(windowWidth / 1805 * 1405 + 10, windowHeight, 0.1, 0.25, 0.8, 0.05, 3, 15, ST_tComparision, 2, 'COMPARISION');
+  sizeType3 = new SizeType(displayWidth / 1805 * 1405 + 10, displayHeight, 0.1, 0.25, 0.8, 0.05, 3, 15, ST_tComparision, 2, 'COMPARISION');
   sizeType3.sizeType();
   sizeType3.textType();
   
-  sizeType4 = new SizeType(windowWidth / 1805 * 1405 + 10, windowHeight, 0.1, 0.15, 0.8, 0.05, 3, 15, ST_tCategory, 3, 'CATEGORY');
+  sizeType4 = new SizeType(displayWidth / 1805 * 1405 + 10, displayHeight, 0.1, 0.15, 0.8, 0.05, 3, 15, ST_tCategory, 3, 'CATEGORY');
   sizeType4.sizeType();
   sizeType4.textType();
 
-  sizeType5 = new SizeType(windowWidth / 1805 * 1405 + 10, windowHeight, 0.1, 0.05, 0.8, 0.05, 3, 15, ST_tType, 4, 'TYPE');
+  sizeType5 = new SizeType(displayWidth / 1805 * 1405 + 10, displayHeight, 0.1, 0.05, 0.8, 0.05, 3, 15, ST_tType, 4, 'TYPE');
   sizeType5.sizeType();
   sizeType5.textType();
 
@@ -375,7 +375,7 @@ class FirstMap {
 
   push();
   extraCanvas.loadPixels();
-  scale(windowWidth / 1805, windowHeight / 1250);
+  scale(displayWidth / 1805, displayHeight / 1250);
   image(extraCanvas, this.x, this.y);
 
   for (var e = 0; e < 1805; e++) {
@@ -528,7 +528,7 @@ class SecondMap {
 
   push();
   extraCanvas.loadPixels();
-  scale((windowWidth) / 1805, (windowHeight) / 1250);
+  scale((displayWidth) / 1805, (displayHeight) / 1250);
   image(extraCanvas, this.x + 6, this.y, 1405);
 
   for (var e = 0; e < 1805; e++) {
@@ -577,8 +577,8 @@ class SecondMap {
 
 
   pop();
-  countryCord = world1.titles[round(mouseX * (1805 / (windowWidth - (390 * (windowWidth / 1805))))) +
-   round(mouseY * 1250 / windowHeight) * 1805];
+  countryCord = world1.titles[round(mouseX * (1805 / (displayWidth - (390 * (displayWidth / 1805))))) +
+   round(mouseY * 1250 / displayHeight) * 1805];
 
   noFill();
   strokeWeight(1);
@@ -616,7 +616,7 @@ class Panel {
  showPanel() {
   noStroke();
   fill(65, 20, 255, 235);
-  rect(this.x, this.y, windowWidth - this.x, windowHeight);
+  rect(this.x, this.y, displayWidth - this.x, displayHeight);
 
  }
 }
@@ -638,10 +638,10 @@ class SizeType {
 
 
  sizeType() {
-  var stX = this.x + (windowWidth - this.x) * this.xLeft;
+  var stX = this.x + (displayWidth - this.x) * this.xLeft;
   var stY = this.y * this.yHeight;
-  var stXLong = (windowWidth - this.x) * this.xLong;
-  var stYLong = windowHeight * this.yLong;
+  var stXLong = (displayWidth - this.x) * this.xLong;
+  var stYLong = displayHeight * this.yLong;
   var stXSlider = round(stXLong * 0.95);
   var stY6 = 0;
   this.fields = min(this.fields,this.tab.length);
@@ -711,10 +711,10 @@ class SizeType {
  }
 
  textType() {
-  var stX = this.x + (windowWidth - this.x) * this.xLeft;
+  var stX = this.x + (displayWidth - this.x) * this.xLeft;
   var stY = this.y * this.yHeight;
-  var stXLong = (windowWidth - this.x) * this.xLong;
-  var stYLong = windowHeight * this.yLong;
+  var stXLong = (displayWidth - this.x) * this.xLong;
+  var stYLong = displayHeight * this.yLong;
   var stXSlider = round(stXLong * 0.95);
   var stBlocks = max(0, this.tab.length - this.fields);
   var stX3 = stX + stXSlider;
@@ -860,10 +860,10 @@ class SizeType {
 
 
  searchType() {
-  var stX = this.x + (windowWidth - this.x) * this.xLeft;
+  var stX = this.x + (displayWidth - this.x) * this.xLeft;
   var stY = this.y * this.yHeight;
-  var stXLong = (windowWidth - this.x) * this.xLong;
-  var stYLong = windowHeight * this.yLong;
+  var stXLong = (displayWidth - this.x) * this.xLong;
+  var stYLong = displayHeight * this.yLong;
   var stXSlider = round(stXLong * 0.95);
   var stBlocks = this.tab.length - this.fields;
   var stX3 = stX + stXSlider;
@@ -1058,10 +1058,10 @@ class Changer {
 
 
  changerType() {
-  var stX = this.x + (windowWidth - this.x) * this.xLeft;
+  var stX = this.x + (displayWidth - this.x) * this.xLeft;
   var stY = this.y * this.yHeight;
-  var stXLong = (windowWidth - this.x) * this.xLong;
-  var stYLong = windowHeight * this.yLong;
+  var stXLong = (displayWidth - this.x) * this.xLong;
+  var stYLong = displayHeight * this.yLong;
   var stXSlider = round(stXLong * 0.95);
 
   /*    NAZWA    */
@@ -1115,10 +1115,10 @@ class Start {
 
 
  startType() {
-  var stX = this.x + (windowWidth - this.x) * this.xLeft;
+  var stX = this.x + (displayWidth - this.x) * this.xLeft;
   var stY = this.y * this.yHeight;
-  var stXLong = (windowWidth - this.x) * this.xLong;
-  var stYLong = windowHeight * this.yLong;
+  var stXLong = (displayWidth - this.x) * this.xLong;
+  var stYLong = displayHeight * this.yLong;
   var stXSlider = round(stXLong * 0.95);
 
 
