@@ -121,7 +121,7 @@ function setup() {
   ster1 = -1;
  }
 
- extraCanvas3 = createGraphics(60, 60);
+ extraCanvas3 = createGraphics(round(windowWidth/20), round(windowWidth/20));
  extraCanvas3.pixelDensity(1.0);
 
 
@@ -296,7 +296,7 @@ function draw() {
   sizeType5.textType();
 
   C_changer = pos5;
-  text(test1, 150, 100, 100, 100);
+  text(round(windowWidth/20), 150, 100, 100, 100);
   text(ST_textChoice[0], 150, 120, 100, 100);
   text(ST_textChoice[1], 150, 150, 100, 100);
 //  text(ST_tabSearch4[0].length, 150, 180, 100, 100);
@@ -482,12 +482,13 @@ class Light {
 class Logo {
 
  createLogo() {
-  image(extraCanvas3, width / 2 - 27, 15);
+  image(extraCanvas3, windowWidth / 2 - 27, 15);
   extraCanvas3.loadPixels();
+  var logS = round(windowWidth/20);
 
-  for (var h = 0; h < 60; h++) {
-   for (var i = 0; i < 60; i++) {
-    var j = (h + i * 60) * 4;
+  for (var h = 0; h < logS; h++) {
+   for (var i = 0; i < logS; i++) {
+    var j = (h + i * logS) * 4;
     var k = round(dist(h, i, 30, 30));
     L_ster1 = L_ster1 + L_ster2;
     if (L_ster1 == 255 || L_ster1 == 0) {
@@ -509,19 +510,19 @@ class Logo {
   textStyle(BOLD);
   textFont('Comic Sans MS');
   fill(255, 255, 255);
-  text('P', width / 2 - 30, 50);
+  text('P', windowWidth / 2 - 30, 50);
   fill(255, 0, 0);
-  text('i', width / 2 - 20, 50);
+  text('i', windowWidth / 2 - 20, 50);
   fill(0, 255, 255);
-  text('X', width / 2 - 10, 50);
+  text('X', windowWidth / 2 - 10, 50);
   fill(0, 0, 255);
-  text('s', width / 2 - 0, 50);
+  text('s', windowWidth / 2 - 0, 50);
   fill(255, 255, 0);
-  text('t', width / 2 + 10, 50);
+  text('t', windowWidth / 2 + 10, 50);
   fill(0, 255, 0);
-  text('a', width / 2 + 20, 50);
+  text('a', windowWidth / 2 + 20, 50);
   fill(0, 0, 0);
-  text('T', width / 2 + 30, 50);
+  text('T', windowWidth / 2 + 30, 50);
  }
 }
 
