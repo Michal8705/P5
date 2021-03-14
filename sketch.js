@@ -482,19 +482,19 @@ class Light {
 class Logo {
 
  createLogo() {
-  image(extraCanvas3, windowWidth / 2 - 27, 15);
-  extraCanvas3.loadPixels();
   var logS = round(windowWidth/20);
+  image(extraCanvas3, windowWidth / 2 - round(logS/3), 15);
+  extraCanvas3.loadPixels();
 
   for (var h = 0; h < logS; h++) {
    for (var i = 0; i < logS; i++) {
     var j = (h + i * logS) * 4;
-    var k = round(dist(h, i, 30, 30));
+    var k = round(dist(h, i, round(logS/2.5), round(logS/2.5)));
     L_ster1 = L_ster1 + L_ster2;
     if (L_ster1 == 255 || L_ster1 == 0) {
      L_ster2 = L_ster2 * (-1);
     }
-    if (k > 15 && k < 20) {
+    if (k > round(logS/5)  && k < round(logS/4) ) {
      extraCanvas3.pixels[j] = 0;
      extraCanvas3.pixels[j + 1] = L_ster1;
      extraCanvas3.pixels[j + 2] = 255;
