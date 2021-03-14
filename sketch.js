@@ -105,9 +105,9 @@ function deviceTurned() {
 test1 = 1;
 }
 
-function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
-}
+// function windowResized() {
+//   resizeCanvas(windowWidth, windowHeight);
+// }
 
 function setup() {
  createCanvas(windowWidth, windowHeight);
