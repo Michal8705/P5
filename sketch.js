@@ -36,6 +36,7 @@ var bbb = 0;
 var mover1 = 0;
 var stXLong2 = 100;
 var stXLong3 = 2;
+var test1 = 0;
 
 
 /*====================== ZMIENNE CLASS =====================*/
@@ -124,6 +125,12 @@ function setup() {
 
 
 function draw() {
+ 
+ if(test1 != displayWidth){
+     setup();
+ }
+ test1 = displayWidth;
+ 
  
  if (sterButton == 0 && inpSter > 0 && inpSter2 != ST_textChoice[2]) {
   
