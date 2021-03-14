@@ -483,7 +483,7 @@ class Logo {
 
  createLogo() {
   var logS = round(windowWidth/20);
-  image(extraCanvas3, windowWidth / 2 - round(logS/3), 15);
+  image(extraCanvas3, round(windowWidth / 2 - logS/3), 15);
   extraCanvas3.loadPixels();
 
   for (var h = 0; h < logS; h++) {
@@ -494,7 +494,7 @@ class Logo {
     if (L_ster1 == 255 || L_ster1 == 0) {
      L_ster2 = L_ster2 * (-1);
     }
-    if (k > round(logS/5)  && k < round(logS/4) ) {
+    if (k > round(logS/5)  && k < round(logS/4)) {
      extraCanvas3.pixels[j] = 0;
      extraCanvas3.pixels[j + 1] = L_ster1;
      extraCanvas3.pixels[j + 2] = 255;
@@ -506,23 +506,23 @@ class Logo {
 
 
   noStroke();
-  textSize(15);
+  textSize(round(logS/5));
   textStyle(BOLD);
   textFont('Comic Sans MS');
   fill(255, 255, 255);
-  text('P', windowWidth / 2 - 30, 50);
+  text('P', round(windowWidth / 2 - logS/2), round(logS/1.5));
   fill(255, 0, 0);
-  text('i', windowWidth / 2 - 20, 50);
+  text('i', round(windowWidth / 2 - logS/4), round(logS/1.5));
   fill(0, 255, 255);
-  text('X', windowWidth / 2 - 10, 50);
+  text('X', round(windowWidth / 2 - logS/6), round(logS/1.5));
   fill(0, 0, 255);
-  text('s', windowWidth / 2 - 0, 50);
+  text('s', round(windowWidth / 2 - 0), round(logS/1.5));
   fill(255, 255, 0);
-  text('t', windowWidth / 2 + 10, 50);
+  text('t', round(windowWidth / 2 + logS/6), round(logS/1.5));
   fill(0, 255, 0);
-  text('a', windowWidth / 2 + 20, 50);
+  text('a', round(windowWidth / 2 + logS/4), round(logS/1.5));
   fill(0, 0, 0);
-  text('T', windowWidth / 2 + 30, 50);
+  text('T', round(windowWidth / 2 + logS/2), round(logS/1.5));
  }
 }
 
