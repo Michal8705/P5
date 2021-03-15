@@ -3,7 +3,7 @@ function setup() {
 }
 
 function draw() {
-  background(0, 100, 100);
+  background(100, 100, 100);
   //  if (window.DeviceOrientationEvent) { 
   // window.addEventListener('orientationchange', function() { 
   //  location.reload(); },
@@ -15,5 +15,5 @@ function windowResized() {
   window.addEventListener('orientationchange', function() { 
    location.reload(); },
    false); }
-  resizeCanvas(windowWidth, windowHeight);
+//  resizeCanvas(windowWidth, windowHeight);
 }
