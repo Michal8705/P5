@@ -3,11 +3,11 @@ function setup() {
 }
 
 function draw() {
-  background(0, 200, 100);
-   if (window.DeviceOrientationEvent) { 
-  window.addEventListener('orientationchange', function() { 
-   location.reload(); },
-   false); }
+  background(0, 100, 100);
+  //  if (window.DeviceOrientationEvent) { 
+  // window.addEventListener('orientationchange', function() { 
+  //  location.reload(); },
+  //  false); }
 }
 
 function windowResized() {
