@@ -12,5 +12,28 @@ function draw() {
 }
 
 function windowResized() {
-  resizeCanvas(windowWidth,windowHeight);
+ var w = window.innerWidth;
+ var h = window.innerHeight;
+ var dw0 = displayWidth;
+ var dh0 = displayHeight;
+ var dw;
+ var dh;
+ if ( w > h ) {
+  if ( dw0 > dh0 ) {
+   dw = dw0;
+   dh = dh0;
+  } else {
+   dw = dh0;
+   dh = dw0;
+  }
+ } else {
+  if ( dw0 < dh0 ) {
+   dw = dw0;
+   dh = dh0;
+  } else {
+   dw = dh0;
+   dh = dw0;
+  }
+ }
+  resizeCanvas(dw,dh);
 }
