@@ -3,7 +3,7 @@ function setup() {
 }
 
 function draw() {
-  background(100, 100, 200);
+  background(200, 100, 200);
 }
 
 function windowResized() {
