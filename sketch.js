@@ -1,9 +1,9 @@
 function setup() {
   pixelDensity(2);
-  createCanvas(windowWidth, windowHeight);
 }
 
 function draw() {
+  createCanvas(windowWidth, windowHeight);
   background(100, 200, 100);
   text(window.innerWidth,50,50,50,50)
   text(window.innerHeight,50,70,50,50)
