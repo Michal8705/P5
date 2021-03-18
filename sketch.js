@@ -1,5 +1,5 @@
 function setup() {
-  createCanvas(window.screen.width, window.screen.height);
+  createCanvas(windowWidth, windowHeight);
 }
 
 function draw() {
@@ -13,36 +13,5 @@ function draw() {
 }
 
 function windowResized() {
- var w = window.innerWidth;
- var h = window.innerHeight;
- var dw0 = displayWidth;
- var dh0 = displayHeight;
- var dw;
- var dh;
- // if ( w > h ) {
- //  if ( dw0 > dh0 ) {
- //   dw = dw0;
- //   dh = dh0;
- //  } else {
- //   dw = dh0;
- //   dh = dw0;
- //  }
- // } else {
- //  if ( dw0 < dh0 ) {
- //   dw = dw0;
- //   dh = dh0;
- //  } else {
- //   dw = dh0;
- //   dh = dw0;
- //  }
- // }
- 
- if ( w > h ) {
-   dw = w;
-   dh = displayWidth;
- } else {
-  dw = w;
-  dh = h;
- }
-  resizeCanvas(dw,dh);
+  resizeCanvas(windowWidth,windowHeight);
 }
