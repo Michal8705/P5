@@ -1,3 +1,6 @@
+var a;
+var b;
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
 }
@@ -12,8 +15,15 @@ function draw() {
   text(window.screen.height,50,190,50,50)
   text(displayWidth,50,210,50,50)
   text(displayHeight,50,230,50,50)
+  if(windowWidth > windowHeight && displayWidth > displayHeight){
+   a = windowWidth;
+   b = windowHeight
+  }else{
+   a = displayHeight;
+   b = displayWidth
+  }
 }
 
 function windowResized() {
-  resizeCanvas(windowWidth,windowHeight);
+  resizeCanvas(a,b);
 }
