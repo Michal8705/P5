@@ -2,11 +2,11 @@ var a = 1;
 var b = 0;
 
 function setup() {
-  createCanvas(document.documentElement.clientWidth, document.documentElement.clientHeight);
+  createCanvas(window.visualViewport.width, window.visualViewport.height);
 }
 
 function draw() {
-  background(200, 200, 200);
+  background(200, 100, 200);
   b = b + 1;
   text(window.innerWidth,50,90,50,50)
   text(window.innerHeight,50,110,50,50)
