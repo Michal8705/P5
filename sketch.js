@@ -1,12 +1,13 @@
 var a = 1;
-var b;
+var b = 0;
 
 function setup() {
-  b = createCanvas(document.documentElement.clientWidth, document.documentElement.clientHeight);
+  createCanvas(document.documentElement.clientWidth, document.documentElement.clientHeight);
 }
 
 function draw() {
-  background(200, 100, 100);
+  background(200, 200, 100);
+  b = b + 1;
   text(window.innerWidth,50,90,50,50)
   text(window.innerHeight,50,110,50,50)
   text(windowWidth,50,130,50,50)
@@ -17,12 +18,12 @@ function draw() {
   text(displayHeight,50,230,50,50)
   text(document.documentElement.clientWidth, 50,250,50,50);
   text(document.documentElement.clientHeight, 50,270,50,50);
-  text(a, 50,290,50,50);
+  text(b, 50,290,50,50);
 
   if((document.documentElement.clientWidth != windowWidth ||
      document.documentElement.clientHeight != windowHeight) && a == 1){
-  resizeCanvas(document.documentElement.clientWidth,document.documentElement.clientHeight);
-  a = 0;
+   location.reload();  
+   a = 0;
   }
 }
 
