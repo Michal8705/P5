@@ -2,11 +2,11 @@ var a = 1;
 var b = 0;
 
 function setup() {
-  createCanvas(window.visualViewport.width, window.visualViewport.height);
+  createCanvas(document.documentElement.clientWidth, document.documentElement.clientHeight);
 }
 
 function draw() {
-  background(100, 100, 200);
+  background(100, 200, 200);
   b = b + 1;
   text(window.innerWidth,50,90,50,50)
   text(window.innerHeight,50,110,50,50)
@@ -30,5 +30,5 @@ function draw() {
 function windowResized() {
   // clear();
   // setup();
-  resizeCanvas(window.visualViewport.width, window.visualViewport.height);
+  resizeCanvas(document.documentElement.clientWidth, document.documentElement.clientHeight);
 }
