@@ -6,7 +6,7 @@ function setup() {
 }
 
 function draw() {
-  background(200, 200, 200);
+  background(200, 100, 100);
   text(window.innerWidth,50,90,50,50)
   text(window.innerHeight,50,110,50,50)
   text(windowWidth,50,130,50,50)
@@ -21,7 +21,7 @@ function draw() {
 
   if((document.documentElement.clientWidth != windowWidth ||
      document.documentElement.clientHeight != windowHeight) && a == 1){
-  b.reload();
+  resizeCanvas(document.documentElement.clientWidth,document.documentElement.clientHeight);
   a = 0;
   }
 }
