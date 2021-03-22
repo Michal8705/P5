@@ -6,7 +6,7 @@ function setup() {
 }
 
 function draw() {
-  background(100, 200, 100);
+  background(200, 200, 100);
   b = b + 1;
   text(window.innerWidth,50,90,50,50)
   text(window.innerHeight,50,110,50,50)
@@ -22,7 +22,7 @@ function draw() {
 
   if((document.documentElement.clientWidth != windowWidth ||
      document.documentElement.clientHeight != windowHeight) && a == 1){
-   window.reload();  
+   window.restore();  
    a = 0;
   }
 }
