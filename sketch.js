@@ -6,7 +6,7 @@ function setup() {
 }
 
 function draw() {
-  background(100, 200, 200);
+  background(200, 200, 200);
   text(window.innerWidth,50,90,50,50)
   text(window.innerHeight,50,110,50,50)
   text(windowWidth,50,130,50,50)
@@ -18,10 +18,10 @@ function draw() {
   text(document.documentElement.clientWidth, 50,250,50,50);
   text(document.documentElement.clientHeight, 50,270,50,50);
 
-  if(document.documentElement.clientWidth != windowWidth ||
-     document.documentElement.clientHeight != windowHeight){
-   setup();
-  }
+  // if(document.documentElement.clientWidth != windowWidth ||
+  //    document.documentElement.clientHeight != windowHeight){
+  //  setup();
+  // }
 }
 
 function windowResized() {
