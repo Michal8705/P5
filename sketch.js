@@ -1,9 +1,9 @@
-var a;
+var a = 1;
 var b;
 
 function setup() {
   createCanvas(document.documentElement.clientWidth, document.documentElement.clientHeight);
-  background(100, 100, 200);
+  background(200, 100, 100);
 }
 
 function draw() {
@@ -19,10 +19,11 @@ function draw() {
   text(document.documentElement.clientWidth, 50,250,50,50);
   text(document.documentElement.clientHeight, 50,270,50,50);
 
-  if(document.documentElement.clientWidth != windowWidth ||
-     document.documentElement.clientHeight != windowHeight){
+  if((document.documentElement.clientWidth != windowWidth ||
+     document.documentElement.clientHeight != windowHeight) && a == 1){
   text(document.documentElement.clientHeight, 50,310,50,50);
   resizeCanvas(document.documentElement.clientWidth,document.documentElement.clientHeight);
+  a = 0;
   }
 }
 
