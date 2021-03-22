@@ -2,10 +2,10 @@ var a;
 var b;
 
 function setup() {
+  createCanvas(document.documentElement.clientWidth, document.documentElement.clientHeight);
 }
 
 function draw() {
-  createCanvas(document.documentElement.clientWidth, document.documentElement.clientHeight);
   background(100, 200, 200);
   text(window.innerWidth,50,90,50,50)
   text(window.innerHeight,50,110,50,50)
@@ -18,15 +18,12 @@ function draw() {
   text(document.documentElement.clientWidth, 50,250,50,50);
   text(document.documentElement.clientHeight, 50,270,50,50);
 
-  if(windowWidth > windowHeight && displayWidth > displayHeight){
-   a = windowWidth;
-   b = windowHeight
-  }else{
-   a = displayHeight;
-   b = displayWidth
+  if(document.documentElement.clientWidth != windowWidth ||
+     document.documentElement.clientHeight != windowHeight){
+   setup();
   }
 }
 
-// function windowResized() {
-//   resizeCanvas(a,b);
-// }
+function windowResized() {
+  resizeCanvas(document.documentElement.clientWidth,document.documentElement.clientHeight);
+}
