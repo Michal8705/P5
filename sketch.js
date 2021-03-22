@@ -1,12 +1,16 @@
 var a = 1;
 var b = 0;
+var metaTag=document.createElement('meta');
+metaTag.name = "viewport"
+metaTag.content = "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+document.getElementsByTagName('head')[0].appendChild(metaTag);
 
 function setup() {
   createCanvas(document.documentElement.clientWidth, document.documentElement.clientHeight);
 }
 
 function draw() {
-  background(100, 200, 200);
+  background(200, 200, 200);
   b = b + 1;
   text(window.innerWidth,50,90,50,50)
   text(window.innerHeight,50,110,50,50)
