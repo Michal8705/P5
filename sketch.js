@@ -3,7 +3,7 @@ var b;
 
 function setup() {
   createCanvas(document.documentElement.clientWidth, document.documentElement.clientHeight);
-  background(100, 200, 100);
+  background(200, 200, 100);
 }
 
 function draw() {
@@ -21,6 +21,7 @@ function draw() {
 
   if(document.documentElement.clientWidth != windowWidth ||
      document.documentElement.clientHeight != windowHeight){
+   clear();
    setup();
   }
 }
