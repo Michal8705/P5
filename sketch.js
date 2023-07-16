@@ -1,3 +1,5 @@
+p5.disableFriendlyErrors = true;
+
 for (var a = 1; a < 2000; a++) {
  eval('var data'+a+';');
  eval('var item'+a+' = 0;');
@@ -14,6 +16,7 @@ var test1 = 0;
 var test2 = 0;
 var test3 = 0;
 var test4 = 1;
+var test5 = 1;
 var tableX = 0;
 var positionX = 0;
 var lengthPositionTest = 0;
@@ -36,10 +39,16 @@ function preload() {
  }
   
  if (test1 == 2){
-  data = loadJSON(url);
+   
+  try {
+    data = loadJSON(url);
+  } catch(error) {
+    console.error(error);
+    data = {}
+  }
+
  }
 }
-
 
 
 function setup() {
@@ -54,7 +63,6 @@ function draw() {
  createCanvas(400, 400);
  background(220);
  textSize(20);
-  
   
  if (test1 > 0 &&
      test4 == 1 &&
@@ -94,6 +102,7 @@ function draw() {
      listOfWords.length > 0 &&
      listOfKeys.length > 0 ){
   test4 = 0;
+test5++  
  }
    
  if (data.queries != undefined &&
@@ -126,7 +135,37 @@ function draw() {
     test1 = 3;
    }
   }
+   
+ test5 = 0;
  }
+  
+  
+ if (test5 == 50){
+  test3 = test3 + 1;
+   
+   test4 = 1; 
+   var str = listOfWords[tableX].toString();
+   str = str.split(";");   
+   lengthPositionTest = str.length
+   item = 0
+   wynikTMP.push(item);
+   positionX = positionX + 1; 
+   data;
+   if (positionX == lengthPositionTest){
+//   if (positionX == 1){
+    positionX = 0;
+    tableX = tableX + 1;
+    wynik.push(wynikTMP);
+    wynikTMP = []; 
+   }
+  if (tableX == listOfWords.length){
+//   if (tableX == 2){
+    test1 = 3;
+   }   
+   
+ test5 = 0;   
+ }
+  
   
   text(test3,50,10)
   
